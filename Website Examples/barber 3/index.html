@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Barbershop | Sharp Cuts. Easy Booking.</title>
+    <meta name="description"
+        content="Modern barbering with a seamless experience. Book your next premium haircut, skin fade, or beard trim online instantly.">
+    <meta name="theme-color" content="#1a1412">
+    <!-- SEO Optimization Meta Tags -->
+    <meta property="og:title" content="Premium Barbershop | Sharp Cuts. Easy Booking.">
+    <meta property="og:description" content="Modern barbering with a seamless experience. Book online instantly.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background Lines container -->
+    <div class="bg-lines-container" id="bg-lines"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar hidden-onload">
+        <div class="nav-container">
+            <a href="#" class="logo">BARBER<span>.</span></a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#booking" class="btn btn-primary sm-hide">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-bg parallax-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title hidden-onload delay-1">Sharp Cuts.<br>Easy Booking.</h1>
+            <p class="hero-subtitle hidden-onload delay-2">Modern barbering with a seamless experience.</p>
+            <div class="hero-cta hidden-onload delay-3">
+                <a href="#services" class="btn btn-primary">Book Now</a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Our Services</h2>
+                    <p>Premium grooming for the modern gentleman.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal delay-1">
+                        <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                        <h3>Haircut</h3>
+                        <p>Classic or contemporary cuts tailored to your style.</p>
+                        <span class="price">$35</span>
+                    </div>
+                    <div class="service-card reveal delay-2">
+                        <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Skin Fade</h3>
+                        <p>Precision fading with razor-sharp detailing.</p>
+                        <span class="price">$45</span>
+                    </div>
+                    <div class="service-card reveal delay-3">
+                        <div class="service-icon"><i class="fa-solid fa-spray-can"></i></div>
+                        <h3>Beard Trim</h3>
+                        <p>Sculpting, fading, and line-ups for a sharp finish.</p>
+                        <span class="price">$25</span>
+                    </div>
+                    <div class="service-card reveal delay-4">
+                        <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+                        <h3>Full Service</h3>
+                        <p>The ultimate grooming experience: cut, fade, beard, and hot towel.</p>
+                        <span class="price">$70</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Why Choose Us Section -->
+        <section class="why-us section bg-alt" id="why-us">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Respect your time.</h2>
+                    <p>We've built a system around professionalism and efficiency.</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-item reveal delay-1">
+                        <div class="benefit-icon"><i class="fa-regular fa-clock"></i></div>
+                        <h4>Fast Booking</h4>
+                    </div>
+                    <div class="benefit-item reveal delay-2">
+                        <div class="benefit-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h4>Pro Barbers</h4>
+                    </div>
+                    <div class="benefit-item reveal delay-3">
+                        <div class="benefit-icon"><i class="fa-solid fa-couch"></i></div>
+                        <h4>Modern Vibe</h4>
+                    </div>
+                    <div class="benefit-item reveal delay-4">
+                        <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4>Reliable</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Booking / System Highlight -->
+        <section class="booking-highlight section" id="booking">
+            <div class="container booking-container">
+                <div class="booking-text reveal">
+                    <h2>Never Miss a Booking</h2>
+                    <p>Experience instant replies, effortless scheduling, and zero wait times. Our smart booking system
+                        gets you in the chair faster.</p>
+                    <ul class="booking-features">
+                        <li><i class="fa-solid fa-check"></i> Instant confirmations</li>
+                        <li><i class="fa-solid fa-check"></i> Calendar integrations</li>
+                        <li><i class="fa-solid fa-check"></i> 24/7 availability</li>
+                    </ul>
+                </div>
+                <div class="booking-visual reveal delay-2">
+                    <div class="chat-mockup">
+                        <div class="chat-header">
+                            <div class="chat-avatar">B</div>
+                            <div>
+                                <strong>Barber Team</strong>
+                                <span class="status">Online</span>
+                            </div>
+                        </div>
+                        <div class="chat-body" id="chat-body">
+                            <!-- Messages injected via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Reviews Section -->
+        <section class="reviews section bg-alt" id="reviews">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>What They Say</h2>
+                </div>
+                <div class="reviews-marquee">
+                    <div class="marquee-track">
+                        <div class="review-card reveal delay-1">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Best fade in the city. The booking process was incredibly smooth and
+                                the barbers know exactly what they're doing."</p>
+                            <p class="reviewer">- Marcus T.</p>
+                        </div>
+                        <div class="review-card reveal delay-2">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Top tier service. The hot towel finish on the beard trim was next
+                                level. Never going anywhere else."</p>
+                            <p class="reviewer">- James R.</p>
+                        </div>
+                        <div class="review-card reveal delay-3">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Clean shop, great vibe, and I loved not having to wait an hour.
+                                Walked in exactly at my appointment time."</p>
+                            <p class="reviewer">- Daniel S.</p>
+                        </div>
+                        <div class="review-card reveal delay-4">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Flawless experience. The skin fade was exactly what I asked for, and
+                                the attention to detail is unmatched."</p>
+                            <p class="reviewer">- Michael B.</p>
+                        </div>
+                    </div>
+                    <div class="marquee-track" aria-hidden="true">
+                        <div class="review-card reveal delay-1">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Best fade in the city. The booking process was incredibly smooth and
+                                the barbers know exactly what they're doing."</p>
+                            <p class="reviewer">- Marcus T.</p>
+                        </div>
+                        <div class="review-card reveal delay-2">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Top tier service. The hot towel finish on the beard trim was next
+                                level. Never going anywhere else."</p>
+                            <p class="reviewer">- James R.</p>
+                        </div>
+                        <div class="review-card reveal delay-3">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Clean shop, great vibe, and I loved not having to wait an hour.
+                                Walked in exactly at my appointment time."</p>
+                            <p class="reviewer">- Daniel S.</p>
+                        </div>
+                        <div class="review-card reveal delay-4">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Flawless experience. The skin fade was exactly what I asked for, and
+                                the attention to detail is unmatched."</p>
+                            <p class="reviewer">- Michael B.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Gallery Section -->
+        <section class="gallery section" id="gallery">
+            <div class="gallery-grid">
+                <!-- Using high quality Unsplash placeholders for barbershops -->
+                <div class="gallery-item reveal delay-1">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80"
+                        alt="Barbershop tools">
+                </div>
+                <div class="gallery-item reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1647140655214-e4a2d914971f?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Barber cutting hair" style="object-position: center 25%;">
+                </div>
+                <div class="gallery-item reveal delay-3">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80"
+                        alt="Fresh fade">
+                </div>
+                <div class="gallery-item reveal delay-4">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+                        alt="Interior barbershop">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container contact-container">
+                <div class="contact-info reveal">
+                    <h2>Find Us</h2>
+                    <p>Drop by or book ahead to secure your spot.</p>
+                    <div class="info-block">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>123 Grooming Street, Elite District, 1001</span>
+                    </div>
+                    <div class="info-block">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="info-block">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon-Sat: 9AM - 7PM<br>Sun: Closed</span>
+                    </div>
+                    <a href="#services" class="btn btn-primary mt-4">Book Appointment</a>
+                </div>
+                <div class="contact-map reveal delay-2">
+                    <!-- Placeholder map visual -->
+                    <div class="map-placeholder">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80"
+                            alt="Map View" class="map-img">
+                        <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">BARBER<span>.</span></a>
+                <p>The standard in modern men's grooming.</p>
+            </div>
+            <div class="footer-links">
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Premium Barber. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gentleman's Den | Dublin Barber Shop</title>
+    <meta
+      name="description"
+      content="The Gentleman's Den on Dame Street, Dublin. Premium grooming with classic cuts, hot towel shaves, and modern barbering."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-fade"></div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+      <span class="toggle-track">
+        <span class="toggle-thumb"></span>
+      </span>
+      <span class="toggle-label">Mode</span>
+    </button>
+
+    <header class="site-header" id="top">
+      <nav class="main-nav">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-group nav-left">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#services" class="nav-link">Our Craft</a></li>
+        </ul>
+        <a href="#top" class="logo">
+          <span class="logo-mark">✂</span>
+          <span>THE GENTLEMAN'S DEN</span>
+        </a>
+        <ul class="nav-group nav-right">
+          <li><a href="#team" class="nav-link">Team</a></li>
+          <li><a href="#booking" class="nav-link">Book Now</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#pricing" class="mobile-link">Pricing</a>
+        <a href="#services" class="mobile-link">Our Craft</a>
+        <a href="#team" class="mobile-link">Team</a>
+        <a href="#booking" class="mobile-link">Book Now</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero reveal" id="hero">
+        <div class="hero-texture"></div>
+        <div class="ornate-divider"><span></span></div>
+        <p class="eyebrow">Dublin's Premier Gentlemen's Grooming</p>
+        <h1>
+          Enter The<br />
+          <span>Den</span>
+        </h1>
+        <p class="hero-copy">
+          Step inside. Sit down. Leave looking like the man you were meant to be.
+        </p>
+        <p class="stamp">Est. MCMXCII</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary shimmer">Reserve Your Chair</a>
+          <a href="#services" class="btn btn-outline shimmer">View Services</a>
+        </div>
+        <div class="hero-smoke"></div>
+      </section>
+
+      <section class="section reveal" id="services">
+        <p class="roman">I. Our Craft</p>
+        <h2>The Full Menu of Services</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>The Classic</h3>
+            <p>Scissor cut with precision finish</p>
+            <span>€26</span>
+          </article>
+          <article class="service-card">
+            <h3>The Shave</h3>
+            <p>Traditional straight razor hot towel shave</p>
+            <span>€32</span>
+          </article>
+          <article class="service-card">
+            <h3>The Gentleman's Full</h3>
+            <p>Cut + shave + beard</p>
+            <span>€58</span>
+          </article>
+          <article class="service-card">
+            <h3>The Sculptor</h3>
+            <p>Full beard shape and definition</p>
+            <span>€20</span>
+          </article>
+          <article class="service-card">
+            <h3>The Fade</h3>
+            <p>Skin or mid fade with blend</p>
+            <span>€29</span>
+          </article>
+          <article class="service-card">
+            <h3>The Heir</h3>
+            <p>Junior cut for under 12s</p>
+            <span>€16</span>
+          </article>
+          <article class="service-card">
+            <h3>The Crown</h3>
+            <p>VIP grooming session, champagne included</p>
+            <span>€90</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="pricing">
+        <p class="roman">II. The Rates</p>
+        <h2>Curated Pricing</h2>
+        <div class="rates-card">
+          <div class="rates-column">
+            <h3>Standard</h3>
+            <div class="rate"><span>The Classic</span><span class="dots"></span><span>€26</span></div>
+            <div class="rate"><span>The Shave</span><span class="dots"></span><span>€32</span></div>
+            <div class="rate"><span>The Sculptor</span><span class="dots"></span><span>€20</span></div>
+            <div class="rate"><span>The Fade</span><span class="dots"></span><span>€29</span></div>
+            <div class="rate"><span>The Heir</span><span class="dots"></span><span>€16</span></div>
+          </div>
+          <div class="rates-column">
+            <h3>Premium & Packages</h3>
+            <div class="rate"><span>The Gentleman's Full</span><span class="dots"></span><span>€58</span></div>
+            <div class="rate"><span>The Crown</span><span class="dots"></span><span>€90</span></div>
+          </div>
+        </div>
+        <p class="footnote">All prices include consultation. Walk-ins welcome subject to availability.</p>
+      </section>
+
+      <section class="section reveal" id="team">
+        <p class="roman">III. The Craftsmen</p>
+        <h2>The Barbers</h2>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="avatar">FG</div>
+            <h3>Fitzgerald</h3>
+            <p class="role">HEAD BARBER</p>
+            <span class="badge">XVII YRS</span>
+            <p class="bio">Straight razor mastery and classic gentlemen's cuts.</p>
+            <div class="tags"><span>Straight Razor</span><span>Classic Cuts</span></div>
+          </article>
+          <article class="team-card">
+            <div class="avatar">BR</div>
+            <h3>Brennan</h3>
+            <p class="role">SENIOR BARBER</p>
+            <span class="badge">XII YRS</span>
+            <p class="bio">Skin fades, tapers and modern texture styles.</p>
+            <div class="tags"><span>Skin Fade</span><span>Texture</span></div>
+          </article>
+          <article class="team-card">
+            <div class="avatar">KV</div>
+            <h3>Kavanagh</h3>
+            <p class="role">BARBER</p>
+            <span class="badge">VIII YRS</span>
+            <p class="bio">Beard architecture and precision sculpting.</p>
+            <div class="tags"><span>Beard Sculpt</span><span>Detailing</span></div>
+          </article>
+          <article class="team-card">
+            <div class="avatar">RL</div>
+            <h3>Reilly</h3>
+            <p class="role">JUNIOR BARBER</p>
+            <span class="badge">III YRS</span>
+            <p class="bio">Youth cuts and contemporary styles for every age.</p>
+            <div class="tags"><span>Youth Cuts</span><span>Modern</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gallery">
+        <p class="roman">IV. The Portfolio</p>
+        <h2>Our Craft in Motion</h2>
+        <div class="filter-row" id="filterRow">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="fades">Fades</button>
+          <button class="filter-btn" data-filter="classics">Classics</button>
+          <button class="filter-btn" data-filter="beards">Beards</button>
+          <button class="filter-btn" data-filter="shaves">Shaves</button>
+        </div>
+        <div class="masonry">
+          <article class="tile fades"><span>Skin Fade</span></article>
+          <article class="tile classics"><span>Classic Cut</span></article>
+          <article class="tile beards"><span>Beard Sculpt</span></article>
+          <article class="tile shaves"><span>Hot Shave</span></article>
+          <article class="tile fades"><span>Taper</span></article>
+          <article class="tile classics beards"><span>Full Package</span></article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="testimonials">
+        <p class="roman">V. The Word</p>
+        <h2>What They Say</h2>
+        <div class="testimonial-track-wrap" id="testimonialWrap">
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>I've been to barbers all over Dublin. None of them come close to the experience here. It's not just a haircut — it's a ritual.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Fergal O., Ranelagh</p>
+            </article>
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>The hot towel shave changed my life. Patrick handles the razor like it's an art form.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Marcus T., Ballsbridge</p>
+            </article>
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>Brought my father here for his birthday. He's 68 and said it was the best shave he's ever had. That says everything.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Cian B., Blackrock</p>
+            </article>
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>The Gentleman's Full package is worth every cent. Walked in a mess, walked out a different man.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Ronan K., Portobello</p>
+            </article>
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>Clean shop, sharp cuts, no nonsense. The lads here know exactly what they're doing.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Darragh M., Drumcondra</p>
+            </article>
+            <article class="quote-card">
+              <span class="quote-mark">“</span>
+              <p>Kavanagh shaped my beard better than I thought was possible. Gets it right every single time.</p>
+              <p class="stars">★★★★★</p>
+              <p class="author">— Eoin S., Dun Laoghaire</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section booking reveal" id="booking">
+        <p class="roman">VI. Reserve</p>
+        <h2>Reserve Your Chair</h2>
+        <div class="steps">
+          <span class="step active" data-step-label="1">Choose</span>
+          <span class="step" data-step-label="2">Details</span>
+        </div>
+        <form id="bookingForm" novalidate>
+          <div class="form-step active" data-step="1">
+            <label>Select Your Barber</label>
+            <div class="barber-picker" id="barberPicker">
+              <button type="button" data-value="Fitzgerald">Fitzgerald</button>
+              <button type="button" data-value="Brennan">Brennan</button>
+              <button type="button" data-value="Kavanagh">Kavanagh</button>
+              <button type="button" data-value="Reilly">Reilly</button>
+            </div>
+            <input type="hidden" id="selectedBarber" required />
+
+            <label for="serviceSelect">Select a Service</label>
+            <select id="serviceSelect" required>
+              <option value="">Choose a service</option>
+              <option value="The Classic - €26">The Classic - €26</option>
+              <option value="The Shave - €32">The Shave - €32</option>
+              <option value="The Gentleman's Full - €58">The Gentleman's Full - €58</option>
+              <option value="The Sculptor - €20">The Sculptor - €20</option>
+              <option value="The Fade - €29">The Fade - €29</option>
+              <option value="The Heir - €16">The Heir - €16</option>
+              <option value="The Crown - €90">The Crown - €90</option>
+            </select>
+            <button type="button" class="btn btn-primary full" id="nextStep">Continue to Step 2</button>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" required />
+
+            <label>Preferred Time</label>
+            <div class="time-grid" id="timeGrid">
+              <button type="button" data-time="09:00">09:00</button>
+              <button type="button" data-time="10:30">10:30</button>
+              <button type="button" data-time="12:00">12:00</button>
+              <button type="button" data-time="14:30">14:30</button>
+              <button type="button" data-time="16:00">16:00</button>
+              <button type="button" data-time="18:00">18:00</button>
+            </div>
+            <input type="hidden" id="selectedTime" required />
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+353 ..." required />
+
+            <button type="submit" class="btn btn-primary full">Secure My Appointment</button>
+          </div>
+        </form>
+        <div class="confirmation" id="confirmation" aria-live="polite"></div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <p class="roman">VII. Find Us</p>
+        <h2>Visit The Den</h2>
+        <div class="contact-grid">
+          <article class="hours-card">
+            <h3>Hours</h3>
+            <p><span>Monday - Friday</span><span>9:00am - 7:30pm</span></p>
+            <p><span>Saturday</span><span>8:00am - 6:00pm</span></p>
+            <p><span>Sunday</span><span>11:00am - 4:00pm</span></p>
+          </article>
+          <article class="contact-card">
+            <h3>Contact</h3>
+            <p>22 Dame Street, Dublin 2, Ireland</p>
+            <p>+353 1 987 6543</p>
+            <p>reserve@gentlemensden.ie</p>
+            <p>Instagram: @gentlemensden</p>
+            <p>Facebook: /gentlemensden</p>
+          </article>
+          <article class="map-card">
+            <h3>Map</h3>
+            <a href="https://maps.google.com/?q=22+Dame+Street+Dublin+2+Ireland" target="_blank" rel="noreferrer">
+              Open in Google Maps
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="ornate-divider"><span></span></div>
+      <p class="footer-logo">THE GENTLEMAN'S DEN</p>
+      <p class="footer-tagline">A cut above the rest. Since 1992.</p>
+      <div class="footer-grid">
+        <div>
+          <h4>Navigation</h4>
+          <p>Services · Pricing · Team · Booking · Contact</p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon - Fri: 9:00am - 7:30pm</p>
+          <p>Sat: 8:00am - 6:00pm</p>
+          <p>Sun: 11:00am - 4:00pm</p>
+        </div>
+        <div>
+          <h4>Social & Legal</h4>
+          <p>Instagram · Facebook</p>
+          <p>Terms · Privacy</p>
+        </div>
+      </div>
+      <p class="copyright">© 2025 The Gentleman's Den. Dame Street, Dublin. All rights reserved. ✂</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

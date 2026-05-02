@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utkarsh Seth | Gamer Portfolio</title>
+  <meta name="description" content="Animated interactive gamer portfolio with dark and light themes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="pageTransition" class="page-transition"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div id="cursorGlow" class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="#hero" class="logo">UTKARSH<span>SETH</span></a>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    <nav id="mainNav" class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+      <span class="toggle-track"><span class="toggle-dot"></span></span>
+    </button>
+  </header>
+  <div class="hue-control">
+    <label for="hueSlider">Hue</label>
+    <input id="hueSlider" type="range" min="0" max="360" value="210" aria-label="Change accent color hue">
+    <span id="hueValue">210°</span>
+  </div>
+
+  <main>
+    <section id="hero" class="section hero reveal">
+      <div class="hero-fog"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Passionate Gamer + Football Lover</p>
+        <h1>Confident ideas.<br>Edgy style.<br><span>Playable energy.</span></h1>
+        <p class="lead">I build experiences that feel alive - fueled by football energy, strategy, focus, and occasional professional-level naps.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Enter Portfolio</a>
+          <a href="#contact" class="btn btn-ghost">Squad Up</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <h2>About Me</h2>
+      <p class="typing-text" id="typingBio"></p>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <h2>Work / Projects</h2>
+      <div class="project-grid">
+        <article class="project-card tilt-card">
+          <h3>Hollow Knight</h3>
+          <p>Atmospheric precision combat study with moody exploration and boss timing obsession.</p>
+        </article>
+        <article class="project-card tilt-card">
+          <h3>Silksong</h3>
+          <p>High-speed movement and adaptive challenge design focused on fluid responsiveness.</p>
+        </article>
+        <article class="project-card tilt-card">
+          <h3>Super Mario Odyssey</h3>
+          <p>Playful level creativity, expressive interactions, and colorful momentum-first design.</p>
+        </article>
+        <article class="project-card tilt-card">
+          <h3>Minecraft Story Mode</h3>
+          <p>Narrative pacing and branching decision moments blended with personality and charm.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-item">
+          <div class="skill-head"><span>Gaming dedication</span><strong>96%</strong></div>
+          <div class="bar"><i style="--target:96%"></i></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-head"><span>Focus & persistence</span><strong>93%</strong></div>
+          <div class="bar"><i style="--target:93%"></i></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-head"><span>Strategy</span><strong>90%</strong></div>
+          <div class="bar"><i style="--target:90%"></i></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-head"><span>Professional sleeper</span><strong>84%</strong></div>
+          <div class="bar"><i style="--target:84%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section reveal">
+      <h2>Testimonials</h2>
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-track" id="testimonialTrack"></div>
+        <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonial slides"></div>
+      </div>
+    </section>
+
+    <section id="blog" class="section reveal">
+      <h2>Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <h3>Patch Notes: Mindset Build</h3>
+          <p>How consistent reps beat motivation in every competitive season.</p>
+        </article>
+        <article class="blog-card">
+          <h3>Creative Combo Chains</h3>
+          <p>Connecting random ideas into clean, playable visual concepts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume" class="section reveal">
+      <h2>Resume / CV</h2>
+      <a class="btn btn-primary pulse-btn" href="#" download>Download CV</a>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <h2>Contact</h2>
+      <form id="contactForm" class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

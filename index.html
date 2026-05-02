@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuvraj | Web Designer & Developer</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* macOS Theme Colors */
+      --mac-silver: #E5E5E5;
+      --mac-gray: #D1D1D6;
+      --mac-dark-gray: #8E8E93;
+      --mac-blue: hsl(var(--hue-val, 0), 100%, 50%);
+      --mac-red: #FF3B30;
+      --mac-yellow: #FFCC00;
+      --mac-green: #34C759;
+      --text-dark: hsl(var(--hue-val, 0), 10%, 15%);
+      --text-light: #F5F5F7;
+
+      --glass-bg: hsl(var(--hue-val, 0), 10%, 95%, 0.6);
+      --glass-border: hsl(var(--hue-val, 0), 10%, 100%, 0.3);
+      --glass-shadow: 0 8px 32px hsl(var(--hue-val, 0), 50%, 10%, 0.1);
+
+      --dock-bg: hsl(var(--hue-val, 0), 10%, 100%, 0.25);
+      --dock-border: hsl(var(--hue-val, 0), 10%, 100%, 0.4);
+
+      --card-bg: hsl(var(--hue-val, 0), 10%, 100%, 0.5);
+      --card-hover: hsl(var(--hue-val, 0), 10%, 100%, 0.8);
+      --hue-val: 210;
+      --bg-hue: hue-rotate(calc(var(--hue-val) * 1deg - 210deg));
+    }
+
+    body.dark-mode {
+      --mac-silver: #2C2C2E;
+      --mac-gray: #3A3A3C;
+      --mac-blue: hsl(var(--hue-val, 0), 100%, 65%);
+      --text-dark: hsl(var(--hue-val, 0), 10%, 95%);
+      --glass-bg: hsl(var(--hue-val, 0), 10%, 15%, 0.6);
+      --glass-border: hsl(var(--hue-val, 0), 10%, 100%, 0.1);
+      --dock-bg: hsl(var(--hue-val, 0), 10%, 15%, 0.4);
+      --dock-border: hsl(var(--hue-val, 0), 10%, 100%, 0.2);
+      --card-bg: hsl(var(--hue-val, 0), 10%, 0%, 0.4);
+      --card-hover: hsl(var(--hue-val, 0), 10%, 0%, 0.6);
+    }
+
+    body.dark-mode .mac-window {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    body.dark-mode .window-header {
+      background: linear-gradient(to bottom, #3a3a3c, #2c2c2e);
+      border-bottom: 1px solid #111;
+    }
+
+    body.dark-mode .window-title {
+      color: #ddd;
+    }
+
+    body.dark-mode .window-content {
+      background: #111;
+    }
+
+    body.dark-mode .file-note {
+      background: rgba(30, 30, 30, 0.9);
+      color: #aaa;
+      border-top: 1px solid #333;
+    }
+
+    body.dark-mode .dock-icon {
+      background: #2c2c2e;
+    }
+
+    body.dark-mode::before {
+      background-image: url('images/macos_wallpaper_dark.png');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      color: var(--text-dark);
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('images/macos_wallpaper_1777717045287.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      z-index: -1;
+      filter: var(--bg-hue);
+      transition: filter 0.3s ease;
+    }
+
+    /* Scrollable Main Content */
+    .desktop-content {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 120px;
+      /* Space for dock */
+      scroll-behavior: smooth;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    .glass-panel {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: var(--glass-shadow);
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .about-header h1 {
+      font-size: 3.5rem;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--text-dark) 0%, var(--mac-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-header h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--mac-dark-gray);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--glass-border);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--mac-blue);
+      margin-bottom: 1rem;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid var(--glass-border);
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .thumb-1 { background-image: url("Website Examples/Barber 1 /Light1.png"); }
+    body.dark-mode .thumb-1 { background-image: url("Website Examples/Barber 1 /Dark1.png"); }
+
+    .thumb-2 { background-image: url("Website Examples/barber 2/Light.png"); }
+    body.dark-mode .thumb-2 { background-image: url("Website Examples/barber 2/Dark.png"); }
+
+    .thumb-3 { background-image: url("Website Examples/barber 3/light.png"); }
+    body.dark-mode .thumb-3 { background-image: url("Website Examples/barber 3/Dark.png"); }
+
+    .thumb-4 { background-image: url("Website Examples/Portfolio/Light1.png"); }
+    body.dark-mode .thumb-4 { background-image: url("Website Examples/Portfolio/Dark1.png"); }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      text-align: center;
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin: 2rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--mac-blue);
+      text-decoration: none;
+      padding: 1rem 2rem;
+      background: rgba(0, 122, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-email:hover {
+      background: rgba(0, 122, 255, 0.2);
+    }
+
+    /* macOS Dock */
+    .dock-container {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+    }
+
+    .dock {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--dock-bg);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid var(--dock-border);
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .dock-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.2);
+      margin: 0 5px;
+    }
+
+    .dock-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--mac-blue);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dock-icon:hover {
+      transform: scale(1.3) translateY(-10px);
+      z-index: 2;
+      margin: 0 10px;
+    }
+
+    .dock-icon::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: -35px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .dock-icon:hover::after {
+      opacity: 1;
+    }
+
+    .minimized-indicator {
+      position: absolute;
+      bottom: -6px;
+      width: 4px;
+      height: 4px;
+      background-color: var(--text-dark);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    /* Window Manager */
+    #window-manager {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .mac-window {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 800px;
+      height: 600px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      pointer-events: auto;
+      /* removed overflow: hidden to allow resize handles to sit slightly outside */
+      border-radius: 12px;
+      min-width: 400px;
+      min-height: 300px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center center;
+    }
+
+    .mac-window.minimized {
+      transform: scale(0.1) translateY(100vh);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .mac-window.fullscreen {
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: calc(100vh - 80px) !important;
+      /* Leave space for dock */
+      border-radius: 0;
+      resize: none;
+    }
+
+    .window-header {
+      height: 38px;
+      background: linear-gradient(to bottom, #f6f6f6, #e0e0e0);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      border-bottom: 1px solid #ccc;
+      border-radius: 12px 12px 0 0;
+      cursor: grab;
+      user-select: none;
+      position: relative;
+    }
+
+    .window-header:active {
+      cursor: grabbing;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 0 0 0.5px rgba(0, 0, 0, 0.15);
+    }
+
+    .control-btn i {
+      font-size: 8px;
+      opacity: 0;
+      transition: opacity 0.1s;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .window-controls:hover .control-btn i {
+      opacity: 1;
+    }
+
+    .btn-close {
+      background: radial-gradient(circle at 35% 30%, #ff8f88, var(--mac-red));
+    }
+
+    .btn-minimize {
+      background: radial-gradient(circle at 35% 30%, #ffe48a, var(--mac-yellow));
+    }
+
+    .btn-maximize {
+      background: radial-gradient(circle at 35% 30%, #90eb9f, var(--mac-green));
+    }
+
+    .window-controls:hover .btn-close i,
+    .window-controls:hover .btn-minimize i,
+    .window-controls:hover .btn-maximize i {
+      opacity: 1;
+    }
+
+    .window-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .window-content {
+      flex: 1;
+      position: relative;
+      background: #f5f5f7;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+    }
+
+    .window-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Iframe Interaction Overlay to prevent iframe from swallowing mouse events during drag */
+    .drag-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      display: none;
+    }
+
+    .mac-window.is-dragging .drag-overlay {
+      display: block;
+    }
+
+    .file-note {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
+
+    /* Resize Handles */
+    .resize-handle {
+      position: absolute;
+      z-index: 100;
+    }
+
+    .resize-n {
+      top: -5px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      cursor: ns-resize;
+    }
+
+    .resize-s {
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      cursor: ns-resize;
+    }
+
+    .resize-e {
+      top: 0;
+      right: -5px;
+      width: 10px;
+      height: 100%;
+      cursor: ew-resize;
+    }
+
+    .resize-w {
+      top: 0;
+      left: -5px;
+      width: 10px;
+      height: 100%;
+      cursor: ew-resize;
+    }
+
+    .resize-nw {
+      top: -5px;
+      left: -5px;
+      width: 15px;
+      height: 15px;
+      cursor: nwse-resize;
+    }
+
+    .resize-ne {
+      top: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      cursor: nesw-resize;
+    }
+
+    .resize-sw {
+      bottom: -5px;
+      left: -5px;
+      width: 15px;
+      height: 15px;
+      cursor: nesw-resize;
+    }
+
+    .resize-se {
+      bottom: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      height: 15px;
+      cursor: nwse-resize;
+    }
+
+    .hue-control {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--glass-border);
+      background: color-mix(in srgb, var(--card-bg) 86%, transparent);
+      border-radius: 12px;
+      backdrop-filter: blur(7px);
+    }
+
+    .hue-control label {
+      font-size: 0.82rem;
+      color: #a0a0a5;
+    }
+
+    #hueSlider {
+      flex: 1;
+      appearance: none;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      background: linear-gradient(
+        90deg,
+        hsl(0 90% 55%),
+        hsl(40 90% 55%),
+        hsl(80 90% 55%),
+        hsl(130 90% 50%),
+        hsl(200 90% 56%),
+        hsl(260 90% 62%),
+        hsl(320 90% 58%),
+        hsl(360 90% 55%)
+      );
+    }
+
+    #hueSlider::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: hsl(var(--hue-val, 0), 100%, 50%);
+      box-shadow: 0 0 0 2px color-mix(in srgb, hsl(var(--hue-val, 0), 100%, 50%) 55%, #000);
+      cursor: pointer;
+    }
+
+    #hueValue {
+      min-width: 46px;
+      font-size: 0.82rem;
+      color: var(--mac-blue);
+      font-weight: 600;
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 900px) {
+      body {
+        height: auto;
+        min-height: 100vh;
+      }
+
+      body::before {
+        background-attachment: scroll;
+      }
+
+      .desktop-content {
+        padding-bottom: 104px;
+      }
+
+      section {
+        min-height: auto;
+        padding: 2.25rem 1rem;
+      }
+
+      .glass-panel {
+        padding: 1.4rem;
+        border-radius: 18px;
+      }
+
+      .about-header h1 {
+        font-size: 2.3rem;
+      }
+
+      .about-header h2 {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .about-content {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-top: 1.3rem;
+      }
+
+      .skill-card {
+        padding: 1rem;
+      }
+
+      .skill-icon {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .project-card {
+        border-radius: 16px;
+      }
+
+      .project-card:active {
+        transform: scale(0.985);
+      }
+
+      .project-thumb {
+        height: 170px;
+      }
+
+      .project-info {
+        padding: 1rem;
+      }
+
+      .contact-email {
+        width: 100%;
+        margin: 1.3rem 0 0;
+        font-size: 1.15rem;
+      }
+
+      .dock-container {
+        bottom: max(8px, env(safe-area-inset-bottom, 0px));
+        width: calc(100% - 12px);
+        left: 6px;
+        transform: none;
+      }
+
+      .dock {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+        padding: 8px;
+        border-radius: 16px;
+      }
+
+      .dock-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        flex: 0 0 auto;
+      }
+
+      .dock-icon:hover {
+        transform: none;
+        margin: 0;
+      }
+
+      .dock-icon::after {
+        display: none;
+      }
+
+      .dock-divider {
+        height: 28px;
+        margin: 0;
+      }
+
+      #window-manager {
+        display: none;
+      }
+
+      .mobile-viewer {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        z-index: 20000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem;
+      }
+
+      .mobile-viewer.open {
+        display: flex;
+      }
+
+      .mobile-viewer-panel {
+        width: 100%;
+        height: min(84vh, 760px);
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 24px 44px rgba(0, 0, 0, 0.35);
+      }
+
+      body.dark-mode .mobile-viewer-panel {
+        background: #1e1e1e;
+      }
+
+      .mobile-viewer-header {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 14px;
+        background: linear-gradient(to bottom, #f6f6f6, #e0e0e0);
+        border-bottom: 1px solid #ccc;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      body.dark-mode .mobile-viewer-header {
+        background: linear-gradient(to bottom, #3a3a3c, #2c2c2e);
+        border-bottom: 1px solid #111;
+      }
+
+      .mobile-viewer-close {
+        border: none;
+        background: var(--mac-red);
+        color: #fff;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .mobile-viewer-open-tab {
+        color: var(--mac-blue);
+        text-decoration: none;
+        font-size: 0.82rem;
+      }
+
+      .mobile-viewer-iframe {
+        flex: 1;
+        border: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Project website files (barber1.html, barber2.html, barber3.html, portfolio.html) should be placed in the same folder as this index.html file -->
+
+  <main class="desktop-content">
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="glass-panel">
+        <div class="about-header">
+          <h1>Yuvraj</h1>
+          <h2>Web Designer & Developer</h2>
+        </div>
+        <div class="about-content">
+          <p>Hi, I'm Yuvraj. I'm a 14-year-old self-taught web designer and developer with a passion for creating
+            beautiful, interactive digital experiences. Over the past 1-2 years, I've been diving deep into code and
+            design, building websites that not only look great but feel alive.</p>
+          <p>When I'm not coding or pushing pixels, you can find me watching football. I'm a massive fan of Real Madrid
+            and my favorite player is Cristiano Ronaldo. Just like on the pitch, I believe in dedication, practice, and
+            delivering a premium performance in every project I build.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="glass-panel">
+        <h2 class="section-title">My Toolkit</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fab fa-html5 skill-icon"></i>
+            <h3>HTML5</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-css3-alt skill-icon"></i>
+            <h3>CSS3</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-js skill-icon"></i>
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-mobile-alt skill-icon"></i>
+            <h3>Responsive Design</h3>
+          </div>
+          <div class="skill-card">
+            <i class="fas fa-paint-brush skill-icon"></i>
+            <h3>Modern UI/UX</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="glass-panel">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="project-card"
+            onclick="openWindow('project-1', 'The Gentleman\'s Trim', 'Website Examples/Barber 1 /index.html')">
+            <div class="project-thumb thumb-1" aria-label="Barber 1"></div>
+            <div class="project-info">
+              <h3 class="project-title">The Gentleman's Den</h3>
+              <p class="project-desc">A classic, traditional barbershop website with vintage aesthetics and timeless
+                elegance.</p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card"
+            onclick="openWindow('project-2', 'Fade & Co.', 'Website Examples/barber 2/index.html')">
+            <div class="project-thumb thumb-2" aria-label="Barber 2"></div>
+            <div class="project-info">
+              <h3 class="project-title">King's Cut</h3>
+              <p class="project-desc">A modern, trendy barbershop site featuring dark mode, neon accents, and urban
+                vibes.</p>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card"
+            onclick="openWindow('project-3', 'The Royal Blade', 'Website Examples/barber 3/index.html')">
+            <div class="project-thumb thumb-3" aria-label="Barber 3"></div>
+            <div class="project-info">
+              <h3 class="project-title">Barber</h3>
+              <p class="project-desc">A luxury, upscale grooming experience online with premium black and gold branding.
+              </p>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card"
+            onclick="openWindow('project-4', 'Creative Minimal Portfolio', 'Website Examples/Portfolio/index.html')">
+            <div class="project-thumb thumb-4" aria-label="Portfolio"></div>
+            <div class="project-info">
+              <h3 class="project-title">Creative Portfolio</h3>
+              <p class="project-desc">A clean,interactive, minimal, and gamified portfolio template designed for
+                creative professionals.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="glass-panel contact-card">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>I'm always open to freelance projects, collaborations, and new opportunities.</p>
+        <a href="mailto:auto.tree7@gmail.com" class="contact-email">auto.tree7@gmail.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Window Manager Container -->
+  <div id="window-manager"></div>
+  <div id="mobile-viewer" class="mobile-viewer" aria-hidden="true"></div>
+
+  <!-- macOS Dock -->
+  <div class="dock-container">
+    <nav class="dock" id="main-dock">
+      <div class="dock-icon" data-tooltip="About Me" onclick="scrollToSection('about')">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="dock-icon" data-tooltip="Skills" onclick="scrollToSection('skills')">
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="dock-icon" data-tooltip="Projects" onclick="scrollToSection('projects')">
+        <i class="fas fa-folder-open"></i>
+      </div>
+      <div class="dock-icon" data-tooltip="Contact" onclick="scrollToSection('contact')">
+        <i class="fas fa-envelope" onclick="event.stopPropagation(); scrollToSection('contact')"></i>
+      </div>
+
+      <div class="dock-divider"></div>
+
+      <div class="dock-icon" data-tooltip="Theme Changer" onclick="openThemeChanger()">
+        <i class="fas fa-palette"></i>
+      </div>
+
+      <div class="dock-divider"></div>
+
+      <!-- Minimized windows will appear here -->
+      <div id="minimized-dock-area" style="display: flex; gap: 10px;"></div>
+    </nav>
+  </div>
+
+  <script>
+    // --- Scroll Navigation ---
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- Window Manager State ---
+    let zIndexCounter = 1000;
+    let focusedWindowId = null;
+    const windows = {}; // Store window state
+    const MOBILE_BREAKPOINT = 900;
+
+    function isMobileLayout() {
+      return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches;
+    }
+
+    function closeMobileViewer() {
+      const viewer = document.getElementById('mobile-viewer');
+      if (!viewer) return;
+      viewer.classList.remove('open');
+      viewer.setAttribute('aria-hidden', 'true');
+      viewer.innerHTML = '';
+    }
+
+    function openMobileViewer(title, payload, isInline = false) {
+      const viewer = document.getElementById('mobile-viewer');
+      if (!viewer) return;
+      const iframeMarkup = isInline
+        ? `<iframe srcdoc="${payload.replaceAll('"', '&quot;')}" class="mobile-viewer-iframe" title="${title}"></iframe>`
+        : `<iframe src="${payload}" class="mobile-viewer-iframe" title="${title}"></iframe>`;
+
+      viewer.innerHTML = `
+        <div class="mobile-viewer-panel" role="dialog" aria-modal="true" aria-label="${title}">
+          <div class="mobile-viewer-header">
+            <button class="mobile-viewer-close" aria-label="Close preview" onclick="closeMobileViewer()">
+              <i class="fas fa-times"></i>
+            </button>
+            <span>${title}</span>
+            ${isInline ? '<span></span>' : `<a class="mobile-viewer-open-tab" href="${payload}" target="_blank" rel="noopener noreferrer">Open Tab</a>`}
+          </div>
+          ${iframeMarkup}
+        </div>
+      `;
+
+      viewer.classList.add('open');
+      viewer.setAttribute('aria-hidden', 'false');
+    }
+
+    // --- Create / Open Window ---
+    function openWindow(id, title, urlOrHtml, isInline = false) {
+      if (isMobileLayout()) {
+        openMobileViewer(title, urlOrHtml, isInline);
+        return;
+      }
+
+      if (windows[id]) {
+        // If it exists but minimized, restore it
+        if (windows[id].minimized) {
+          restoreWindow(id);
+        }
+        focusWindow(id);
+        return;
+      }
+
+      const wm = document.getElementById('window-manager');
+
+      // Calculate random initial offset for stacking
+      const offset = Object.keys(windows).length * 30;
+
+      const winEl = document.createElement('div');
+      winEl.className = 'mac-window';
+      winEl.id = `win-${id}`;
+      winEl.style.top = `${10 + offset}px`;
+      winEl.style.left = `${100 + offset}px`;
+
+      winEl.innerHTML = `
+        <div class="window-header" onmousedown="startDrag(event, '${id}')">
+          <div class="window-controls">
+            <div class="control-btn btn-close" onclick="closeWindow('${id}')">
+              <i class="fas fa-times"></i>
+            </div>
+            <div class="control-btn btn-minimize" onclick="minimizeWindow('${id}')">
+              <i class="fas fa-minus"></i>
+            </div>
+            <div class="control-btn btn-maximize" onclick="toggleMaximize('${id}')">
+              <i class="fas fa-expand-alt"></i>
+            </div>
+          </div>
+          <div class="window-title">${title}</div>
+          ${!isInline ? `
+          <div class="control-btn" style="width: auto; padding: 4px 10px; border: none; font-size: 11px; position: absolute; right: 16px; color: var(--mac-blue); background: rgba(0,0,0,0.05); border-radius: 12px; display: flex; gap: 6px; font-weight: 500; cursor: pointer;" onclick="window.open('${urlOrHtml}', '_blank')" title="Open in New Tab">
+            <i class="fas fa-external-link-alt" style="opacity: 1; font-size: 10px; color: var(--mac-blue);"></i> Pop Out
+          </div>
+          ` : ''}
+        </div>
+        <div class="window-content">
+          <div class="drag-overlay"></div>
+          ${isInline ? urlOrHtml : `<iframe src="${urlOrHtml}" class="window-iframe" title="${title}"></iframe>
+          <div class="file-note">Website files included in project folder</div>`}
+        </div>
+        <div class="resize-handle resize-n" onmousedown="startResize(event, '${id}', 'n')"></div>
+        <div class="resize-handle resize-s" onmousedown="startResize(event, '${id}', 's')"></div>
+        <div class="resize-handle resize-e" onmousedown="startResize(event, '${id}', 'e')"></div>
+        <div class="resize-handle resize-w" onmousedown="startResize(event, '${id}', 'w')"></div>
+        <div class="resize-handle resize-nw" onmousedown="startResize(event, '${id}', 'nw')"></div>
+        <div class="resize-handle resize-ne" onmousedown="startResize(event, '${id}', 'ne')"></div>
+        <div class="resize-handle resize-sw" onmousedown="startResize(event, '${id}', 'sw')"></div>
+        <div class="resize-handle resize-se" onmousedown="startResize(event, '${id}', 'se')"></div>
+      `;
+
+      // Listen for click to focus
+      winEl.addEventListener('mousedown', () => focusWindow(id));
+
+      wm.appendChild(winEl);
+
+      windows[id] = {
+        el: winEl,
+        title: title,
+        minimized: false,
+        fullscreen: false,
+        prevRect: null
+      };
+
+      focusWindow(id);
+    }
+
+    // --- Focus Window ---
+    function focusWindow(id) {
+      if (!windows[id] || windows[id].minimized) return;
+      zIndexCounter++;
+      windows[id].el.style.zIndex = zIndexCounter;
+      focusedWindowId = id;
+    }
+
+    // --- Close Window ---
+    function closeWindow(id) {
+      if (!windows[id]) return;
+
+      // Remove from DOM
+      windows[id].el.remove();
+
+      // Remove from minimized dock if there
+      removeMinimizedIcon(id);
+
+      delete windows[id];
+      if (focusedWindowId === id) {
+        focusedWindowId = null;
+        // Optionally focus the next highest z-index window
+      }
+    }
+
+    // --- Minimize Window ---
+    function minimizeWindow(id) {
+      if (!windows[id] || windows[id].minimized) return;
+
+      windows[id].minimized = true;
+      windows[id].el.classList.add('minimized');
+
+      if (focusedWindowId === id) focusedWindowId = null;
+
+      // Add icon to dock
+      const dockArea = document.getElementById('minimized-dock-area');
+      const iconEl = document.createElement('div');
+      iconEl.className = 'dock-icon';
+      iconEl.id = `dock-icon-${id}`;
+      iconEl.setAttribute('data-tooltip', windows[id].title);
+      iconEl.innerHTML = `<i class="fas fa-window-maximize"></i><div class="minimized-indicator"></div>`;
+      iconEl.onclick = () => restoreWindow(id);
+
+      dockArea.appendChild(iconEl);
+    }
+
+    // --- Restore Window ---
+    function restoreWindow(id) {
+      if (!windows[id] || !windows[id].minimized) return;
+
+      windows[id].minimized = false;
+      windows[id].el.classList.remove('minimized');
+
+      removeMinimizedIcon(id);
+      focusWindow(id);
+    }
+
+    function removeMinimizedIcon(id) {
+      const iconEl = document.getElementById(`dock-icon-${id}`);
+      if (iconEl) iconEl.remove();
+    }
+
+    // --- Maximize/Fullscreen Window ---
+    function toggleMaximize(id) {
+      if (!windows[id]) return;
+      const win = windows[id];
+
+      if (win.fullscreen) {
+        win.el.classList.remove('fullscreen');
+        win.fullscreen = false;
+      } else {
+        win.el.classList.add('fullscreen');
+        win.fullscreen = true;
+      }
+      focusWindow(id);
+    }
+
+    // --- Dragging Logic ---
+    let isDragging = false;
+    let dragId = null;
+    let startX, startY, initialLeft, initialTop;
+
+    function startDrag(e, id) {
+      // Don't drag if clicking controls
+      if (e.target.closest('.control-btn')) return;
+      if (windows[id].fullscreen) return; // Prevent drag if fullscreen
+
+      isDragging = true;
+      dragId = id;
+      focusWindow(id);
+
+      startX = e.clientX;
+      startY = e.clientY;
+
+      const rect = windows[id].el.getBoundingClientRect();
+      initialLeft = rect.left;
+      initialTop = rect.top;
+
+      windows[id].el.classList.add('is-dragging');
+
+      document.addEventListener('mousemove', onDrag);
+      document.addEventListener('mouseup', stopDrag);
+    }
+
+    function onDrag(e) {
+      if (!isDragging || !dragId) return;
+
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      const el = windows[dragId].el;
+      const rect = el.getBoundingClientRect();
+      const viewportW = window.innerWidth;
+      const viewportH = window.innerHeight;
+
+      // Keep at least part of the window on-screen so it can always be grabbed again.
+      const minVisibleX = 80;
+      const minVisibleY = 60;
+      const margin = 6;
+
+      const nextLeft = initialLeft + dx;
+      const nextTop = initialTop + dy;
+
+      const clampedLeft = Math.min(
+        viewportW - minVisibleX - margin,
+        Math.max(margin - rect.width + minVisibleX, nextLeft)
+      );
+      const clampedTop = Math.min(
+        viewportH - minVisibleY - margin,
+        Math.max(margin, nextTop)
+      );
+
+      el.style.left = `${clampedLeft}px`;
+      el.style.top = `${clampedTop}px`;
+    }
+
+    function stopDrag() {
+      if (dragId && windows[dragId]) {
+        windows[dragId].el.classList.remove('is-dragging');
+      }
+      isDragging = false;
+      dragId = null;
+      document.removeEventListener('mousemove', onDrag);
+      document.removeEventListener('mouseup', stopDrag);
+    }
+
+    // --- Resizing Logic ---
+    let isResizing = false;
+    let resizeDir = '';
+    let startW, startH;
+
+    function startResize(e, id, dir) {
+      if (windows[id].fullscreen) return;
+
+      e.stopPropagation(); // prevent window focus drag
+      isResizing = true;
+      dragId = id;
+      resizeDir = dir;
+      focusWindow(id);
+
+      startX = e.clientX;
+      startY = e.clientY;
+
+      const rect = windows[id].el.getBoundingClientRect();
+      initialLeft = rect.left;
+      initialTop = rect.top;
+      startW = rect.width;
+      startH = rect.height;
+
+      windows[id].el.classList.add('is-dragging'); // Reuse overlay to block iframe
+
+      document.addEventListener('mousemove', onResize);
+      document.addEventListener('mouseup', stopResize);
+    }
+
+    function onResize(e) {
+      if (!isResizing || !dragId) return;
+
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const el = windows[dragId].el;
+      const viewportW = window.innerWidth;
+      const viewportH = window.innerHeight;
+      const margin = 6;
+
+      let newW = startW;
+      let newH = startH;
+      let newLeft = initialLeft;
+      let newTop = initialTop;
+
+      if (resizeDir.includes('e')) newW = startW + dx;
+      if (resizeDir.includes('s')) newH = startH + dy;
+      if (resizeDir.includes('w')) {
+        newW = startW - dx;
+        newLeft = initialLeft + dx;
+      }
+      if (resizeDir.includes('n')) {
+        newH = startH - dy;
+        newTop = initialTop + dy;
+      }
+
+      // Enforce minimums (e.g. 400x300)
+      if (newW < 400) {
+        if (resizeDir.includes('w')) newLeft -= (400 - newW);
+        newW = 400;
+      }
+      if (newH < 300) {
+        if (resizeDir.includes('n')) newTop -= (300 - newH);
+        newH = 300;
+      }
+
+      // Clamp to viewport so the window can't leave the screen fully.
+      // Keep at least some portion visible and avoid resizing beyond the viewport.
+      const minVisibleX = 80;
+      const minVisibleY = 60;
+
+      // Limit size to viewport with margins.
+      const maxW = Math.max(400, viewportW - margin * 2);
+      const maxH = Math.max(300, viewportH - margin * 2);
+      newW = Math.min(newW, maxW);
+      newH = Math.min(newH, maxH);
+
+      // Clamp position so some portion stays visible.
+      newLeft = Math.min(
+        viewportW - minVisibleX - margin,
+        Math.max(margin - newW + minVisibleX, newLeft)
+      );
+      newTop = Math.min(
+        viewportH - minVisibleY - margin,
+        Math.max(margin, newTop)
+      );
+
+      el.style.width = `${newW}px`;
+      el.style.height = `${newH}px`;
+      // Always apply clamped position so resize from E/S can't push it off-screen.
+      el.style.left = `${newLeft}px`;
+      el.style.top = `${newTop}px`;
+    }
+
+    function stopResize() {
+      if (dragId && windows[dragId]) {
+        windows[dragId].el.classList.remove('is-dragging');
+      }
+      isResizing = false;
+      dragId = null;
+      resizeDir = '';
+      document.removeEventListener('mousemove', onResize);
+      document.removeEventListener('mouseup', stopResize);
+    }
+
+    // --- Keyboard Shortcuts ---
+    window.addEventListener('keydown', (e) => {
+      // Check if command/meta key is pressed
+      if (e.metaKey || e.ctrlKey) {
+        if (e.key.toLowerCase() === 'w') {
+          if (focusedWindowId) {
+            e.preventDefault(); // Try to prevent tab closing
+            closeWindow(focusedWindowId);
+          }
+        }
+        if (e.key.toLowerCase() === 'm') {
+          if (focusedWindowId) {
+            e.preventDefault();
+            minimizeWindow(focusedWindowId);
+          }
+        }
+      }
+
+      // Arrow keys to move window
+      if (focusedWindowId && !windows[focusedWindowId].fullscreen) {
+        const moveAmount = 20;
+        const el = windows[focusedWindowId].el;
+
+        let rect = el.getBoundingClientRect();
+        let moved = false;
+
+        const viewportW = window.innerWidth;
+        const viewportH = window.innerHeight;
+        const minVisibleX = 80;
+        const minVisibleY = 60;
+        const margin = 6;
+
+        const clampPos = (left, top, width, height) => {
+          const clampedLeft = Math.min(
+            viewportW - minVisibleX - margin,
+            Math.max(margin - width + minVisibleX, left)
+          );
+          const clampedTop = Math.min(
+            viewportH - minVisibleY - margin,
+            Math.max(margin, top)
+          );
+          return { left: clampedLeft, top: clampedTop };
+        };
+
+        if (e.key === 'ArrowUp') {
+          const next = clampPos(rect.left, rect.top - moveAmount, rect.width, rect.height);
+          el.style.left = `${next.left}px`;
+          el.style.top = `${next.top}px`;
+          moved = true;
+        }
+        if (e.key === 'ArrowDown') {
+          const next = clampPos(rect.left, rect.top + moveAmount, rect.width, rect.height);
+          el.style.left = `${next.left}px`;
+          el.style.top = `${next.top}px`;
+          moved = true;
+        }
+        if (e.key === 'ArrowLeft') {
+          const next = clampPos(rect.left - moveAmount, rect.top, rect.width, rect.height);
+          el.style.left = `${next.left}px`;
+          el.style.top = `${next.top}px`;
+          moved = true;
+        }
+        if (e.key === 'ArrowRight') {
+          const next = clampPos(rect.left + moveAmount, rect.top, rect.width, rect.height);
+          el.style.left = `${next.left}px`;
+          el.style.top = `${next.top}px`;
+          moved = true;
+        }
+
+        // Only prevent default if we actually moved the window, 
+        // to prevent page scrolling while trying to move the window.
+        if (moved) {
+          e.preventDefault();
+        }
+      }
+    });
+
+    // --- Theme Changer App ---
+    function openThemeChanger() {
+      const isDark = document.body.classList.contains('dark-mode');
+      const content = `
+        <div style="padding: 40px; display: flex; flex-direction: column; gap: 30px; height: 100%; box-sizing: border-box; align-items: center; justify-content: center;">
+          
+          <div style="display: flex; align-items: center; gap: 15px; width: 100%; max-width: 300px; justify-content: space-between; padding: 20px; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--glass-border);">
+            <div style="display: flex; align-items: center; gap: 15px;">
+              <i class="fas fa-moon" style="font-size: 24px; color: #8E8E93;"></i>
+              <span style="font-weight: 600; font-size: 1.1rem;">Dark Mode</span>
+            </div>
+            <label style="position: relative; display: inline-block; width: 50px; height: 28px;">
+              <input type="checkbox" id="darkModeToggle" style="opacity: 0; width: 0; height: 0;" onchange="toggleDarkMode(this.checked)" ${isDark ? 'checked' : ''}>
+              <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: ${isDark ? 'var(--mac-green)' : '#ccc'}; transition: .4s; border-radius: 34px;" id="toggleBg">
+                <span id="toggleSlider" style="position: absolute; content: ''; height: 22px; width: 22px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; transform: ${isDark ? 'translateX(22px)' : 'translateX(0)'};"></span>
+              </span>
+            </label>
+          </div>
+
+          <div class="hue-control" style="max-width: 400px; margin: 0 auto;">
+            <label for="hueSlider">Hue</label>
+            <input id="hueSlider" type="range" min="0" max="360" value="${getComputedStyle(document.documentElement).getPropertyValue('--hue-val').trim() || 0}" aria-label="Change accent color hue" oninput="setHue(this.value)">
+            <span id="hueValue">${getComputedStyle(document.documentElement).getPropertyValue('--hue-val').trim() || 0}&deg;</span>
+          </div>
+        </div>
+      `;
+      openWindow('theme-changer', 'Theme Changer', content, true);
+    }
+
+    function toggleDarkMode(isDark) {
+      const bg = document.getElementById('toggleBg');
+      const slider = document.getElementById('toggleSlider');
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        if (slider) slider.style.transform = 'translateX(22px)';
+        if (bg) bg.style.backgroundColor = 'var(--mac-green)';
+      } else {
+        document.body.classList.remove('dark-mode');
+        if (slider) slider.style.transform = 'translateX(0)';
+        if (bg) bg.style.backgroundColor = '#ccc';
+      }
+    }
+
+    function setHue(hue) {
+      const safeHue = Math.max(0, Math.min(360, Number(hue)));
+      document.documentElement.style.setProperty("--hue-val", safeHue);
+      const hueSlider = document.getElementById("hueSlider");
+      const hueValue = document.getElementById("hueValue");
+      if (hueSlider) hueSlider.value = safeHue;
+      if (hueValue) hueValue.textContent = `${safeHue}°`;
+      localStorage.setItem("portfolio-hue", String(safeHue));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedHue = localStorage.getItem("portfolio-hue");
+      if (savedHue !== null) {
+        setHue(savedHue);
+      }
+
+      const viewer = document.getElementById('mobile-viewer');
+      if (viewer) {
+        viewer.addEventListener('click', (event) => {
+          if (event.target === viewer) {
+            closeMobileViewer();
+          }
+        });
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (!isMobileLayout()) {
+        closeMobileViewer();
+      }
+    });
+
+  </script>
+</body>
+
+</html>
